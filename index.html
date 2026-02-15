@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venue Portal — Client Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-icon">V</div>
+    <span class="brand-name">The Grand Hall</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Overview</div>
+    <a href="#" class="nav-item active" data-page="dashboard">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </a>
+
+    <div class="nav-section-label">Event Management</div>
+    <a href="#" class="nav-item" data-page="guestlist">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Guestlist & Attendance
+      <span class="nav-badge">248</span>
+    </a>
+    <a href="#" class="nav-item" data-page="reservations">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Reservations
+      <span class="nav-badge">12</span>
+    </a>
+
+    <div class="nav-section-label">Operations</div>
+    <a href="#" class="nav-item" data-page="vendors">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      Vendor Management
+    </a>
+    <a href="#" class="nav-item" data-page="fnb">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      Food & Beverage
+    </a>
+
+    <div class="nav-section-label">Business</div>
+    <a href="#" class="nav-item" data-page="sales">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      Sales Management
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="user-info">
+      <div class="user-avatar">JW</div>
+      <div class="user-details">
+        <span class="user-name">Jessica W.</span>
+        <span class="user-role">Venue Manager</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content">
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="topbar-left">
+      <h1 class="page-title" id="pageTitle">Dashboard</h1>
+    </div>
+    <div class="topbar-right">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search events, guests, vendors…">
+      </div>
+      <button class="icon-btn notification-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notification-dot"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== DASHBOARD PAGE ==================== -->
+  <div class="page active" id="page-dashboard">
+    <div class="dashboard-grid">
+      <!-- Stats Row -->
+      <div class="stat-card">
+        <div class="stat-label">Upcoming Events</div>
+        <div class="stat-value">8</div>
+        <div class="stat-change positive">+2 this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Guests (This Month)</div>
+        <div class="stat-value">1,248</div>
+        <div class="stat-change positive">+18% vs last month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Revenue (Feb)</div>
+        <div class="stat-value">$84,500</div>
+        <div class="stat-change positive">+12% vs Jan</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Vendors</div>
+        <div class="stat-value">24</div>
+        <div class="stat-change neutral">No change</div>
+      </div>
+
+      <!-- Upcoming Events -->
+      <div class="card span-2">
+        <div class="card-header">
+          <h3>Upcoming Events</h3>
+          <button class="btn btn-text">View All</button>
+        </div>
+        <div class="event-list">
+          <div class="event-item">
+            <div class="event-date-badge">
+              <span class="month">FEB</span>
+              <span class="day">18</span>
+            </div>
+            <div class="event-info">
+              <div class="event-name">Thompson-Garcia Wedding</div>
+              <div class="event-meta">6:00 PM — Grand Ballroom · 180 guests</div>
+            </div>
+            <div class="event-status confirmed">Confirmed</div>
+          </div>
+          <div class="event-item">
+            <div class="event-date-badge">
+              <span class="month">FEB</span>
+              <span class="day">20</span>
+            </div>
+            <div class="event-info">
+              <div class="event-name">Apex Corp Annual Gala</div>
+              <div class="event-meta">7:30 PM — Rooftop Terrace · 250 guests</div>
+            </div>
+            <div class="event-status pending">Pending Deposit</div>
+          </div>
+          <div class="event-item">
+            <div class="event-date-badge">
+              <span class="month">FEB</span>
+              <span class="day">22</span>
+            </div>
+            <div class="event-info">
+              <div class="event-name">Little Stars Bat Mitzvah</div>
+              <div class="event-meta">4:00 PM — Garden Room · 95 guests</div>
+            </div>
+            <div class="event-status confirmed">Confirmed</div>
+          </div>
+          <div class="event-item">
+            <div class="event-date-badge">
+              <span class="month">FEB</span>
+              <span class="day">28</span>
+            </div>
+            <div class="event-info">
+              <div class="event-name">Tech Innovators Conference</div>
+              <div class="event-meta">9:00 AM — Main Hall + Breakout Rooms · 400 guests</div>
+            </div>
+            <div class="event-status in-progress">In Planning</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Quick Actions</h3>
+        </div>
+        <div class="quick-actions">
+          <button class="quick-action-btn" onclick="navigateTo('reservations')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+            New Reservation
+          </button>
+          <button class="quick-action-btn" onclick="navigateTo('guestlist')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            Add Guest
+          </button>
+          <button class="quick-action-btn" onclick="navigateTo('vendors')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Create Invoice
+          </button>
+          <button class="quick-action-btn" onclick="navigateTo('fnb')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+            Update Menu
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GUESTLIST & ATTENDANCE PAGE ==================== -->
+  <div class="page" id="page-guestlist">
+    <!-- Event Selector -->
+    <div class="page-toolbar">
+      <div class="toolbar-left">
+        <div class="event-selector">
+          <label>Event</label>
+          <select id="eventSelect">
+            <option>Thompson-Garcia Wedding — Feb 18</option>
+            <option>Apex Corp Annual Gala — Feb 20</option>
+            <option>Little Stars Bat Mitzvah — Feb 22</option>
+            <option>Tech Innovators Conference — Feb 28</option>
+          </select>
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <button class="btn btn-secondary">Import CSV</button>
+        <button class="btn btn-secondary">Export List</button>
+        <button class="btn btn-primary" onclick="document.getElementById('addGuestModal').classList.add('open')">+ Add Guest</button>
+      </div>
+    </div>
+
+    <!-- Guest Stats -->
+    <div class="stats-row">
+      <div class="mini-stat">
+        <div class="mini-stat-value">180</div>
+        <div class="mini-stat-label">Total Invited</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value confirmed-text">142</div>
+        <div class="mini-stat-label">Confirmed</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value pending-text">26</div>
+        <div class="mini-stat-label">Pending RSVP</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value declined-text">12</div>
+        <div class="mini-stat-label">Declined</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value">0</div>
+        <div class="mini-stat-label">Checked In</div>
+      </div>
+      <div class="mini-stat progress-stat">
+        <div class="attendance-ring">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="circle" stroke-dasharray="79, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <span class="ring-text">79%</span>
+        </div>
+        <div class="mini-stat-label">RSVP Rate</div>
+      </div>
+    </div>
+
+    <!-- Filters & Search -->
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="filter-tab active">All (180)</button>
+        <button class="filter-tab">Confirmed (142)</button>
+        <button class="filter-tab">Pending (26)</button>
+        <button class="filter-tab">Declined (12)</button>
+        <button class="filter-tab">Checked In (0)</button>
+      </div>
+      <div class="filter-actions">
+        <div class="search-inline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search guests…">
+        </div>
+        <select class="filter-select">
+          <option>All Tables</option>
+          <option>Table 1 — Bride's Family</option>
+          <option>Table 2 — Groom's Family</option>
+          <option>Table 3 — Wedding Party</option>
+          <option>Table 4-8 — Friends</option>
+        </select>
+        <select class="filter-select">
+          <option>All Meals</option>
+          <option>Beef</option>
+          <option>Chicken</option>
+          <option>Fish</option>
+          <option>Vegetarian</option>
+          <option>Vegan</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Guest Table -->
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th><input type="checkbox"></th>
+            <th>Guest Name</th>
+            <th>Email</th>
+            <th>Party Size</th>
+            <th>RSVP Status</th>
+            <th>Table</th>
+            <th>Meal Choice</th>
+            <th>Dietary Notes</th>
+            <th>Check-In</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="guest-name-cell">
+              <div class="guest-avatar">ST</div>
+              Sarah Thompson
+            </td>
+            <td class="text-muted">sarah.t@email.com</td>
+            <td>2</td>
+            <td><span class="status-badge confirmed">Confirmed</span></td>
+            <td>Table 1</td>
+            <td>Fish</td>
+            <td class="text-muted">Gluten-free</td>
+            <td><button class="checkin-btn">Check In</button></td>
+            <td><button class="icon-btn-sm">⋯</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="guest-name-cell">
+              <div class="guest-avatar">MG</div>
+              Miguel Garcia
+            </td>
+            <td class="text-muted">m.garcia@email.com</td>
+            <td>4</td>
+            <td><span class="status-badge confirmed">Confirmed</span></td>
+            <td>Table 2</td>
+            <td>Beef</td>
+            <td class="text-muted">—</td>
+            <td><button class="checkin-btn">Check In</button></td>
+            <td><button class="icon-btn-sm">⋯</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="guest-name-cell">
+              <div class="guest-avatar">AJ</div>
+              Amanda Johnson
+            </td>
+            <td class="text-muted">ajohnson@email.com</td>
+            <td>1</td>
+            <td><span class="status-badge pending">Pending</span></td>
+            <td>—</td>
+            <td>—</td>
+            <td class="text-muted">—</td>
+            <td><button class="checkin-btn" disabled>—</button></td>
+            <td><button class="icon-btn-sm">⋯</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="guest-name-cell">
+              <div class="guest-avatar">RP</div>
+              Rachel Park
+            </td>
+            <td class="text-muted">rpark@email.com</td>
+            <td>2</td>
+            <td><span class="status-badge confirmed">Confirmed</span></td>
+            <td>Table 3</td>
+            <td>Vegetarian</td>
+            <td class="text-muted">Nut allergy</td>
+            <td><button class="checkin-btn">Check In</button></td>
+            <td><button class="icon-btn-sm">⋯</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="guest-name-cell">
+              <div class="guest-avatar">DL</div>
+              David Liu
+            </td>
+            <td class="text-muted">dliu@email.com</td>
+            <td>3</td>
+            <td><span class="status-badge declined">Declined</span></td>
+            <td>—</td>
+            <td>—</td>
+            <td class="text-muted">—</td>
+            <td><button class="checkin-btn" disabled>—</button></td>
+            <td><button class="icon-btn-sm">⋯</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="guest-name-cell">
+              <div class="guest-avatar">KW</div>
+              Karen Williams
+            </td>
+            <td class="text-muted">kwilliams@email.com</td>
+            <td>2</td>
+            <td><span class="status-badge confirmed">Confirmed</span></td>
+            <td>Table 4</td>
+            <td>Chicken</td>
+            <td class="text-muted">Dairy-free</td>
+            <td><button class="checkin-btn">Check In</button></td>
+            <td><button class="icon-btn-sm">⋯</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="guest-name-cell">
+              <div class="guest-avatar">JR</div>
+              James Rodriguez
+            </td>
+            <td class="text-muted">jrod@email.com</td>
+            <td>2</td>
+            <td><span class="status-badge confirmed">Confirmed</span></td>
+            <td>Table 5</td>
+            <td>Beef</td>
+            <td class="text-muted">—</td>
+            <td><button class="checkin-btn">Check In</button></td>
+            <td><button class="icon-btn-sm">⋯</button></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="guest-name-cell">
+              <div class="guest-avatar">EN</div>
+              Emily Nguyen
+            </td>
+            <td class="text-muted">enguyen@email.com</td>
+            <td>1</td>
+            <td><span class="status-badge pending">Pending</span></td>
+            <td>—</td>
+            <td>—</td>
+            <td class="text-muted">—</td>
+            <td><button class="checkin-btn" disabled>—</button></td>
+            <td><button class="icon-btn-sm">⋯</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <span class="pagination-info">Showing 1-8 of 180 guests</span>
+      <div class="pagination-controls">
+        <button class="pagination-btn" disabled>← Previous</button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <span>…</span>
+        <button class="pagination-btn">23</button>
+        <button class="pagination-btn">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== RESERVATIONS PAGE ==================== -->
+  <div class="page" id="page-reservations">
+    <div class="page-toolbar">
+      <div class="toolbar-left">
+        <div class="view-toggle">
+          <button class="view-btn active">Calendar</button>
+          <button class="view-btn">List</button>
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <button class="btn btn-primary" onclick="document.getElementById('addReservationModal').classList.add('open')">+ New Reservation</button>
+      </div>
+    </div>
+
+    <!-- Calendar View -->
+    <div class="calendar-wrapper">
+      <div class="calendar-header">
+        <button class="btn btn-text">← Previous</button>
+        <h3>February 2026</h3>
+        <button class="btn btn-text">Next →</button>
+      </div>
+      <div class="calendar-grid">
+        <div class="cal-day-header">Sun</div>
+        <div class="cal-day-header">Mon</div>
+        <div class="cal-day-header">Tue</div>
+        <div class="cal-day-header">Wed</div>
+        <div class="cal-day-header">Thu</div>
+        <div class="cal-day-header">Fri</div>
+        <div class="cal-day-header">Sat</div>
+        <div class="cal-day other">1</div>
+        <div class="cal-day other">2</div>
+        <div class="cal-day other">3</div>
+        <div class="cal-day other">4</div>
+        <div class="cal-day other">5</div>
+        <div class="cal-day other">6</div>
+        <div class="cal-day other">7</div>
+        <div class="cal-day">8</div>
+        <div class="cal-day">9</div>
+        <div class="cal-day">10</div>
+        <div class="cal-day">11</div>
+        <div class="cal-day">12</div>
+        <div class="cal-day">13</div>
+        <div class="cal-day has-event">14
+          <div class="cal-event pink">Valentine's Dinner</div>
+        </div>
+        <div class="cal-day today">15</div>
+        <div class="cal-day">16</div>
+        <div class="cal-day">17</div>
+        <div class="cal-day has-event">18
+          <div class="cal-event coral">Thompson Wedding</div>
+        </div>
+        <div class="cal-day">19</div>
+        <div class="cal-day has-event">20
+          <div class="cal-event blue">Apex Corp Gala</div>
+        </div>
+        <div class="cal-day">21</div>
+        <div class="cal-day has-event">22
+          <div class="cal-event green">Bat Mitzvah</div>
+        </div>
+        <div class="cal-day">23</div>
+        <div class="cal-day">24</div>
+        <div class="cal-day">25</div>
+        <div class="cal-day">26</div>
+        <div class="cal-day">27</div>
+        <div class="cal-day has-event">28
+          <div class="cal-event blue">Tech Conference</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spaces availability -->
+    <div class="card mt-24">
+      <div class="card-header">
+        <h3>Space Availability — Feb 18</h3>
+      </div>
+      <div class="spaces-grid">
+        <div class="space-card booked">
+          <div class="space-name">Grand Ballroom</div>
+          <div class="space-capacity">Capacity: 300</div>
+          <div class="space-status">Thompson Wedding · 6:00 PM - 11:00 PM</div>
+          <span class="space-badge booked">Booked</span>
+        </div>
+        <div class="space-card available">
+          <div class="space-name">Rooftop Terrace</div>
+          <div class="space-capacity">Capacity: 250</div>
+          <div class="space-status">Available all day</div>
+          <span class="space-badge available">Available</span>
+        </div>
+        <div class="space-card available">
+          <div class="space-name">Garden Room</div>
+          <div class="space-capacity">Capacity: 100</div>
+          <div class="space-status">Available all day</div>
+          <span class="space-badge available">Available</span>
+        </div>
+        <div class="space-card blocked">
+          <div class="space-name">Main Hall</div>
+          <div class="space-capacity">Capacity: 500</div>
+          <div class="space-status">Maintenance — HVAC service</div>
+          <span class="space-badge blocked">Blocked</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VENDOR MANAGEMENT PAGE ==================== -->
+  <div class="page" id="page-vendors">
+    <div class="page-toolbar">
+      <div class="toolbar-left">
+        <div class="filter-tabs">
+          <button class="filter-tab active">All Vendors (24)</button>
+          <button class="filter-tab">Preferred (8)</button>
+          <button class="filter-tab">Catering (6)</button>
+          <button class="filter-tab">Floral (4)</button>
+          <button class="filter-tab">Music/DJ (3)</button>
+          <button class="filter-tab">Photo/Video (3)</button>
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <button class="btn btn-primary">+ Add Vendor</button>
+      </div>
+    </div>
+
+    <div class="vendor-grid">
+      <div class="vendor-card">
+        <div class="vendor-header">
+          <div class="vendor-avatar coral">EC</div>
+          <div class="vendor-title">
+            <h4>Elegance Catering Co.</h4>
+            <span class="vendor-category">Catering</span>
+          </div>
+          <span class="preferred-badge">★ Preferred</span>
+        </div>
+        <div class="vendor-details">
+          <div class="vendor-detail-row">
+            <span class="detail-label">Contact</span>
+            <span>Maria Santos · (555) 234-5678</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Upcoming</span>
+            <span>3 events assigned</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Rating</span>
+            <span class="stars">★★★★★ 4.9</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Contract</span>
+            <span class="status-badge confirmed">Active</span>
+          </div>
+        </div>
+        <div class="vendor-actions">
+          <button class="btn btn-secondary btn-sm">View Profile</button>
+          <button class="btn btn-text btn-sm">Message</button>
+        </div>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-header">
+          <div class="vendor-avatar green">BG</div>
+          <div class="vendor-title">
+            <h4>Bloom & Garden Florals</h4>
+            <span class="vendor-category">Floral Design</span>
+          </div>
+          <span class="preferred-badge">★ Preferred</span>
+        </div>
+        <div class="vendor-details">
+          <div class="vendor-detail-row">
+            <span class="detail-label">Contact</span>
+            <span>Lily Chen · (555) 345-6789</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Upcoming</span>
+            <span>2 events assigned</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Rating</span>
+            <span class="stars">★★★★★ 5.0</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Contract</span>
+            <span class="status-badge confirmed">Active</span>
+          </div>
+        </div>
+        <div class="vendor-actions">
+          <button class="btn btn-secondary btn-sm">View Profile</button>
+          <button class="btn btn-text btn-sm">Message</button>
+        </div>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-header">
+          <div class="vendor-avatar blue">SV</div>
+          <div class="vendor-title">
+            <h4>Soundwave Entertainment</h4>
+            <span class="vendor-category">DJ / Music</span>
+          </div>
+        </div>
+        <div class="vendor-details">
+          <div class="vendor-detail-row">
+            <span class="detail-label">Contact</span>
+            <span>DJ Marcus · (555) 456-7890</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Upcoming</span>
+            <span>1 event assigned</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Rating</span>
+            <span class="stars">★★★★☆ 4.5</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Contract</span>
+            <span class="status-badge pending">Renewal Due</span>
+          </div>
+        </div>
+        <div class="vendor-actions">
+          <button class="btn btn-secondary btn-sm">View Profile</button>
+          <button class="btn btn-text btn-sm">Message</button>
+        </div>
+      </div>
+
+      <div class="vendor-card">
+        <div class="vendor-header">
+          <div class="vendor-avatar pink">CP</div>
+          <div class="vendor-title">
+            <h4>Capture Moments Photo</h4>
+            <span class="vendor-category">Photography</span>
+          </div>
+          <span class="preferred-badge">★ Preferred</span>
+        </div>
+        <div class="vendor-details">
+          <div class="vendor-detail-row">
+            <span class="detail-label">Contact</span>
+            <span>Alex Rivera · (555) 567-8901</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Upcoming</span>
+            <span>2 events assigned</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Rating</span>
+            <span class="stars">★★★★★ 4.8</span>
+          </div>
+          <div class="vendor-detail-row">
+            <span class="detail-label">Contract</span>
+            <span class="status-badge confirmed">Active</span>
+          </div>
+        </div>
+        <div class="vendor-actions">
+          <button class="btn btn-secondary btn-sm">View Profile</button>
+          <button class="btn btn-text btn-sm">Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOD & BEVERAGE PAGE ==================== -->
+  <div class="page" id="page-fnb">
+    <div class="page-toolbar">
+      <div class="toolbar-left">
+        <div class="event-selector">
+          <label>Event</label>
+          <select>
+            <option>Thompson-Garcia Wedding — Feb 18</option>
+            <option>Apex Corp Annual Gala — Feb 20</option>
+          </select>
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <button class="btn btn-secondary">Menu Templates</button>
+        <button class="btn btn-primary">+ Create Menu</button>
+      </div>
+    </div>
+
+    <!-- Menu Overview -->
+    <div class="fnb-layout">
+      <div class="card">
+        <div class="card-header">
+          <h3>Menu — Thompson-Garcia Wedding</h3>
+          <span class="status-badge confirmed">Finalized</span>
+        </div>
+
+        <div class="menu-section">
+          <h4 class="menu-course-title">Cocktail Hour</h4>
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <span class="menu-item-name">Bruschetta Trio</span>
+                <span class="menu-item-desc">Tomato basil, mushroom truffle, fig & goat cheese</span>
+              </div>
+              <span class="menu-item-price">$8/pp</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <span class="menu-item-name">Shrimp Cocktail</span>
+                <span class="menu-item-desc">Chilled jumbo shrimp, house cocktail sauce</span>
+              </div>
+              <span class="menu-item-price">$12/pp</span>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <span class="menu-item-name">Signature Cocktails (2)</span>
+                <span class="menu-item-desc">Lavender Lemonade Spritz, Old Fashioned Remix</span>
+              </div>
+              <span class="menu-item-price">$14/pp</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h4 class="menu-course-title">Main Course (Plated, Choice of 3)</h4>
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <span class="menu-item-name">Filet Mignon</span>
+                <span class="menu-item-desc">8oz center cut, red wine reduction, roasted vegetables</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="menu-item-count">68 guests</span>
+                <span class="menu-item-price">$65/pp</span>
+              </div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <span class="menu-item-name">Pan-Seared Salmon</span>
+                <span class="menu-item-desc">Atlantic salmon, lemon dill beurre blanc, asparagus</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="menu-item-count">45 guests</span>
+                <span class="menu-item-price">$55/pp</span>
+              </div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <span class="menu-item-name">Wild Mushroom Risotto (V)</span>
+                <span class="menu-item-desc">Arborio rice, porcini, truffle oil, parmesan</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="menu-item-count">29 guests</span>
+                <span class="menu-item-price">$45/pp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h4 class="menu-course-title">Dessert</h4>
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-info">
+                <span class="menu-item-name">3-Tier Wedding Cake</span>
+                <span class="menu-item-desc">Vanilla bean, raspberry filling — by Sweetness Bakery</span>
+              </div>
+              <span class="menu-item-price">$1,200</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- F&B Summary Sidebar -->
+      <div class="fnb-sidebar">
+        <div class="card">
+          <div class="card-header"><h3>Cost Summary</h3></div>
+          <div class="cost-breakdown">
+            <div class="cost-row">
+              <span>Cocktail Hour (142 guests)</span>
+              <span>$4,828</span>
+            </div>
+            <div class="cost-row">
+              <span>Main Course (142 guests)</span>
+              <span>$8,185</span>
+            </div>
+            <div class="cost-row">
+              <span>Dessert</span>
+              <span>$1,200</span>
+            </div>
+            <div class="cost-row">
+              <span>Open Bar (4 hrs)</span>
+              <span>$7,100</span>
+            </div>
+            <div class="cost-row">
+              <span>Staff (12 servers)</span>
+              <span>$3,600</span>
+            </div>
+            <div class="cost-divider"></div>
+            <div class="cost-row total">
+              <span>Subtotal</span>
+              <span>$24,913</span>
+            </div>
+            <div class="cost-row">
+              <span>Tax (8.5%)</span>
+              <span>$2,118</span>
+            </div>
+            <div class="cost-row">
+              <span>Service Charge (20%)</span>
+              <span>$4,983</span>
+            </div>
+            <div class="cost-divider"></div>
+            <div class="cost-row grand-total">
+              <span>Total F&B</span>
+              <span>$32,014</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3>Dietary Summary</h3></div>
+          <div class="dietary-list">
+            <div class="dietary-item">
+              <span class="dietary-dot red"></span>
+              <span>Gluten-free: 12 guests</span>
+            </div>
+            <div class="dietary-item">
+              <span class="dietary-dot orange"></span>
+              <span>Nut allergy: 8 guests</span>
+            </div>
+            <div class="dietary-item">
+              <span class="dietary-dot green"></span>
+              <span>Vegetarian: 29 guests</span>
+            </div>
+            <div class="dietary-item">
+              <span class="dietary-dot purple"></span>
+              <span>Vegan: 5 guests</span>
+            </div>
+            <div class="dietary-item">
+              <span class="dietary-dot blue"></span>
+              <span>Dairy-free: 6 guests</span>
+            </div>
+            <div class="dietary-item">
+              <span class="dietary-dot yellow"></span>
+              <span>Kosher: 3 guests</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SALES MANAGEMENT PAGE ==================== -->
+  <div class="page" id="page-sales">
+    <div class="page-toolbar">
+      <div class="toolbar-left">
+        <div class="filter-tabs">
+          <button class="filter-tab active">Pipeline</button>
+          <button class="filter-tab">All Deals</button>
+          <button class="filter-tab">Won</button>
+          <button class="filter-tab">Lost</button>
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <select class="filter-select">
+          <option>This Month</option>
+          <option>This Quarter</option>
+          <option>This Year</option>
+        </select>
+        <button class="btn btn-primary">+ New Deal</button>
+      </div>
+    </div>
+
+    <!-- Sales Stats -->
+    <div class="stats-row">
+      <div class="mini-stat">
+        <div class="mini-stat-value">$142,500</div>
+        <div class="mini-stat-label">Pipeline Value</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value confirmed-text">$84,500</div>
+        <div class="mini-stat-label">Won (Feb)</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value">72%</div>
+        <div class="mini-stat-label">Win Rate</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value">$18,200</div>
+        <div class="mini-stat-label">Avg Deal Size</div>
+      </div>
+    </div>
+
+    <!-- Pipeline Board -->
+    <div class="pipeline-board">
+      <div class="pipeline-column">
+        <div class="pipeline-col-header">
+          <h4>Inquiry</h4>
+          <span class="pipeline-count">4 · $58,000</span>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Morrison 50th Anniversary</div>
+          <div class="deal-meta">Mar 15 · Grand Ballroom</div>
+          <div class="deal-value">$22,000</div>
+          <div class="deal-footer">
+            <span class="deal-date">Added 2 days ago</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Startup Demo Day</div>
+          <div class="deal-meta">Apr 2 · Main Hall</div>
+          <div class="deal-value">$8,500</div>
+          <div class="deal-footer">
+            <span class="deal-date">Added 5 days ago</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Annual Charity Auction</div>
+          <div class="deal-meta">Apr 18 · Rooftop Terrace</div>
+          <div class="deal-value">$15,000</div>
+          <div class="deal-footer">
+            <span class="deal-date">Added 1 week ago</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Prom Night — Lincoln HS</div>
+          <div class="deal-meta">May 20 · Grand Ballroom</div>
+          <div class="deal-value">$12,500</div>
+          <div class="deal-footer">
+            <span class="deal-date">Added today</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-column">
+        <div class="pipeline-col-header">
+          <h4>Proposal Sent</h4>
+          <span class="pipeline-count">3 · $44,500</span>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Chen-Nakamura Wedding</div>
+          <div class="deal-meta">Apr 12 · Garden Room</div>
+          <div class="deal-value">$28,000</div>
+          <div class="deal-footer">
+            <span class="deal-date">Sent 3 days ago</span>
+            <span class="deal-hot">Hot</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Quarterly Board Meeting</div>
+          <div class="deal-meta">Mar 5 · Boardroom</div>
+          <div class="deal-value">$4,500</div>
+          <div class="deal-footer">
+            <span class="deal-date">Sent 1 day ago</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Fashion Showcase</div>
+          <div class="deal-meta">May 8 · Rooftop Terrace</div>
+          <div class="deal-value">$12,000</div>
+          <div class="deal-footer">
+            <span class="deal-date">Sent 1 week ago</span>
+            <span class="deal-cold">Follow up</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-column">
+        <div class="pipeline-col-header">
+          <h4>Contract Signed</h4>
+          <span class="pipeline-count">2 · $40,000</span>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Apex Corp Annual Gala</div>
+          <div class="deal-meta">Feb 20 · Rooftop Terrace</div>
+          <div class="deal-value">$32,000</div>
+          <div class="deal-footer">
+            <span class="deal-date">Awaiting deposit</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="deal-name">Baby Shower — Kim Family</div>
+          <div class="deal-meta">Mar 22 · Garden Room</div>
+          <div class="deal-value">$8,000</div>
+          <div class="deal-footer">
+            <span class="deal-date">Deposit received</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-column won">
+        <div class="pipeline-col-header">
+          <h4>Won / Booked</h4>
+          <span class="pipeline-count">5 · $84,500</span>
+        </div>
+        <div class="deal-card won">
+          <div class="deal-name">Thompson-Garcia Wedding</div>
+          <div class="deal-meta">Feb 18 · Grand Ballroom</div>
+          <div class="deal-value">$32,014</div>
+        </div>
+        <div class="deal-card won">
+          <div class="deal-name">Little Stars Bat Mitzvah</div>
+          <div class="deal-meta">Feb 22 · Garden Room</div>
+          <div class="deal-value">$14,500</div>
+        </div>
+        <div class="deal-card won">
+          <div class="deal-name">Tech Innovators Conference</div>
+          <div class="deal-meta">Feb 28 · Main Hall</div>
+          <div class="deal-value">$22,000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ==================== ADD GUEST MODAL ==================== -->
+<div class="modal-overlay" id="addGuestModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Add Guest</h3>
+      <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('open')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="First name">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="guest@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(555) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Party Size</label>
+          <input type="number" value="1" min="1">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Table Assignment</label>
+          <select>
+            <option>Unassigned</option>
+            <option>Table 1 — Bride's Family</option>
+            <option>Table 2 — Groom's Family</option>
+            <option>Table 3 — Wedding Party</option>
+            <option>Table 4 — Friends</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Meal Preference</label>
+          <select>
+            <option>Not Selected</option>
+            <option>Beef</option>
+            <option>Fish</option>
+            <option>Chicken</option>
+            <option>Vegetarian</option>
+            <option>Vegan</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Dietary Notes / Allergies</label>
+        <input type="text" placeholder="e.g. Nut allergy, Gluten-free">
+      </div>
+      <div class="form-group">
+        <label>Internal Notes</label>
+        <textarea rows="2" placeholder="Optional notes for your team…"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').classList.remove('open')">Cancel</button>
+      <button class="btn btn-primary">Add Guest</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NEW RESERVATION MODAL ==================== -->
+<div class="modal-overlay" id="addReservationModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3>New Reservation</h3>
+      <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('open')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Client Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Event Type</label>
+          <select>
+            <option>Wedding</option>
+            <option>Corporate Event</option>
+            <option>Private Party</option>
+            <option>Conference</option>
+            <option>Charity / Fundraiser</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Event Date</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Time</label>
+          <div class="form-row compact">
+            <input type="time" value="18:00">
+            <span class="form-separator">to</span>
+            <input type="time" value="23:00">
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Space</label>
+          <select>
+            <option>Grand Ballroom (300 cap.)</option>
+            <option>Rooftop Terrace (250 cap.)</option>
+            <option>Garden Room (100 cap.)</option>
+            <option>Main Hall (500 cap.)</option>
+            <option>Boardroom (30 cap.)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Expected Guests</label>
+          <input type="number" placeholder="150">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="client@email.com">
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(555) 000-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Estimated Budget</label>
+        <input type="text" placeholder="$25,000">
+      </div>
+      <div class="form-group">
+        <label>Notes</label>
+        <textarea rows="3" placeholder="Special requests, setup requirements, etc."></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').classList.remove('open')">Cancel</button>
+      <button class="btn btn-primary">Create Reservation</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Navigation
+function navigateTo(pageId) {
+  // Update nav
+  document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+  const navItem = document.querySelector(`[data-page="${pageId}"]`);
+  if (navItem) navItem.classList.add('active');
+
+  // Update page
+  document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+  document.getElementById(`page-${pageId}`).classList.add('active');
+
+  // Update title
+  const titles = {
+    dashboard: 'Dashboard',
+    guestlist: 'Guestlist & Attendance',
+    reservations: 'Reservations',
+    vendors: 'Vendor Management',
+    fnb: 'Food & Beverage',
+    sales: 'Sales Management'
+  };
+  document.getElementById('pageTitle').textContent = titles[pageId] || 'Dashboard';
+
+  // Close mobile sidebar
+  document.getElementById('sidebar').classList.remove('open');
+}
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo(item.dataset.page);
+  });
+});
+
+// Check-in toggle
+document.querySelectorAll('.checkin-btn:not([disabled])').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.classList.contains('checked-in')) {
+      btn.classList.remove('checked-in');
+      btn.textContent = 'Check In';
+    } else {
+      btn.classList.add('checked-in');
+      btn.textContent = 'Checked In ✓';
+    }
+  });
+});
+
+// Filter tabs
+document.querySelectorAll('.filter-tabs').forEach(tabGroup => {
+  tabGroup.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabGroup.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+});
+</script>
+
+</body>
+</html>
